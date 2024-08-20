@@ -1,14 +1,20 @@
-#include <TXLib.h>
 #include <stdio.h>
 #include <math.h>
 const int SS_INF_ROOTS = -1;
+const double EPS = 1e-9;
+
+int Its_Zero(double n);
 int SquareSolver(double a, double b, double c, double* x1, double* x2);
+
 int main(void)
 {
     printf("# Solver of quadratic equations!\n");
     printf("Author: Daniil\n\n");
 
-    double a = 0, b = 0, c = 0;
+    double a = 0;
+    double b = 0;
+    double c = 0;
+    
     printf("Enter a, b, c: ");
     scanf("%lf %lf %lf", &a, &b, &c);
 
@@ -36,22 +42,33 @@ int main(void)
 }
 int SquareSolver(double a, double b, double c, double* x1, double* x2)
 {
-    if(a == 0)
+    if(Its_Zero(a))
     {
-        if(b == 0)
+        if(Its_Zero(double b))
         {
-            return ((c == 0)? SS_INF_ROOTS : 0);
+            return ((Its_Zero(c))? SS_INF_ROOTS : 0);
         }
-        else /* a == 0 è b != 0 */
-            {
+        else /* a == 0 Ã¨ b != 0 */
+        {
             *x1 = -c / b;
             return 1;
-            }
+        }
     }
-    else /* a != 0 è b != 0 */
+    else /* a != 0 Ã¨ b != 0 */
+    {
+        double d = ((b * b) - (4 * a * c));
+
+        if(!Its_Zero(d) && d < 0)
+            return 0;
+        else
         {
-        *x1 = ((-b + sqrt((b * b) - (4 * a * c))) / (2 * a));
-        *x2 =((-b - sqrt((b * b) - (4 * a * c))) / (2 * a));
+        *x1 = ((-b + sqrt(d);
+        *x2 =((-b - sqrt(d);
         return 2;
         }
+    }
+}
+int Its_Zero(double n)
+{
+    return (fabs(n) < EPS);        
 }
