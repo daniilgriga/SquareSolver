@@ -1,0 +1,308 @@
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\danii\OneDrive\Рабочий стол\SquareSolver\SquareSolver.exe, файл: C:\Users\danii\OneDrive\Рабочий стол\SquareSolver\SquareSolver.cpp, строка: 60, функция: int SquareSolver(double, double, double, double*, double*),
+
+Сообщение: ВНЕЗАПНО: Логическая ошибка: Неверно, что "!(sizeof (c) == sizeof (float) ? __isnanf (c) : sizeof (c) == sizeof (double) ? __isnan (c) : __isnanl (c))".
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x005072FC (32-bit), Flags: Cmdre0, Thread: 0x2880 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\danii\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Aug 21 2024 15:02:06, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Aug 21 2024 15:02:12
+
+Run file:	C:\Users\danii\OneDrive\Рабочий стол\SquareSolver\SquareSolver.exe
+Directory:	C:\Users\danii\OneDrive\Рабочий стол\SquareSolver
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\danii\OneDrive\Рабочий стол\SquareSolver\SquareSolver.exe,
+
+ВНЕЗАПНО: Исключение С++, вызванное оператором throw.
+
+#1: Исключение EXCEPTION_CPP_MSC (0xE06D7363) при выполнении кода по адресу 0x76D6A942 в модуле C:\WINDOWS\System32\KERNELBASE.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+Ой, всё (EXCEPTION_NONCONTINUABLE).
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x005072FC (32-bit), Flags: Cmdre0, Thread: 0x2880 (Main), GetLastError(): 298 (Слишком много попыток занесения события для семафора). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in int {anonymous}::TX::txMessageBox(const char*, const char*, unsigned int) at c:\users\danii\downloads\codeblocks\mingw\include\txlib.h:12789:
+
+  12787: 
+  12788: $   HWND wnd = _txCanvas_Window;
+=>12789: $   int  ret = MessageBoxW ((wnd && IsWindowVisible (wnd))? wnd : _TX_CALL (Win32::GetConsoleWindow,()),
+  12790:                             textW, headerW, flags | MB_SETFOREGROUND | MB_TOPMOST);
+  12791: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\danii\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Aug 21 2024 15:02:06, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Aug 21 2024 15:02:12
+
+Run file:	C:\Users\danii\OneDrive\Рабочий стол\SquareSolver\SquareSolver.exe
+Directory:	C:\Users\danii\OneDrive\Рабочий стол\SquareSolver
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\danii\OneDrive\Рабочий стол\SquareSolver\SquareSolver.exe, файл: C:\Users\danii\OneDrive\Рабочий стол\SquareSolver\SquareSolver.cpp, строка: 194, функция: int RunTester(int, double, double, double, double, double, int),
+
+Сообщение: ВНЕЗАПНО: Логическая ошибка: Неверно, что "0 && "Error"".
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x005072FC (32-bit), Flags: Cmdre0, Thread: 0x2424 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\danii\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Aug 21 2024 16:45:43, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Aug 21 2024 16:45:49
+
+Run file:	C:\Users\danii\OneDrive\Рабочий стол\SquareSolver\SquareSolver.exe
+Directory:	C:\Users\danii\OneDrive\Рабочий стол\SquareSolver
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\danii\OneDrive\Рабочий стол\SquareSolver\SquareSolver.exe,
+
+ВНЕЗАПНО: Исключение С++, вызванное оператором throw.
+
+#1: Исключение EXCEPTION_CPP_MSC (0xE06D7363) при выполнении кода по адресу 0x76D6A942 в модуле C:\WINDOWS\System32\KERNELBASE.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+Ой, всё (EXCEPTION_NONCONTINUABLE).
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x005072FC (32-bit), Flags: Cmdre0, Thread: 0x2424 (Main), GetLastError(): 298 (Слишком много попыток занесения события для семафора). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in int {anonymous}::TX::txMessageBox(const char*, const char*, unsigned int) at c:\users\danii\downloads\codeblocks\mingw\include\txlib.h:12789:
+
+  12787: 
+  12788: $   HWND wnd = _txCanvas_Window;
+=>12789: $   int  ret = MessageBoxW ((wnd && IsWindowVisible (wnd))? wnd : _TX_CALL (Win32::GetConsoleWindow,()),
+  12790:                             textW, headerW, flags | MB_SETFOREGROUND | MB_TOPMOST);
+  12791: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\danii\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Aug 21 2024 16:45:43, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Aug 21 2024 16:45:49
+
+Run file:	C:\Users\danii\OneDrive\Рабочий стол\SquareSolver\SquareSolver.exe
+Directory:	C:\Users\danii\OneDrive\Рабочий стол\SquareSolver
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\danii\OneDrive\Рабочий стол\SquareSolver\SquareSolver.exe, файл: C:\Users\danii\OneDrive\Рабочий стол\SquareSolver\SquareSolver.cpp, строка: 194, функция: int RunTester(int, double, double, double, double, double, int),
+
+Сообщение: ВНЕЗАПНО: Логическая ошибка: Неверно, что "0 && "Error"".
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x005072FC (32-bit), Flags: Cmdre0, Thread: 0x3618 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\danii\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Aug 21 2024 16:45:43, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Aug 21 2024 16:46:22
+
+Run file:	C:\Users\danii\OneDrive\Рабочий стол\SquareSolver\SquareSolver.exe
+Directory:	C:\Users\danii\OneDrive\Рабочий стол\SquareSolver
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\danii\OneDrive\Рабочий стол\SquareSolver\SquareSolver.exe,
+
+ВНЕЗАПНО: Исключение С++, вызванное оператором throw.
+
+#1: Исключение EXCEPTION_CPP_MSC (0xE06D7363) при выполнении кода по адресу 0x76D6A942 в модуле C:\WINDOWS\System32\KERNELBASE.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+Ой, всё (EXCEPTION_NONCONTINUABLE).
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x005072FC (32-bit), Flags: Cmdre0, Thread: 0x3618 (Main), GetLastError(): 298 (Слишком много попыток занесения события для семафора). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in int {anonymous}::TX::txMessageBox(const char*, const char*, unsigned int) at c:\users\danii\downloads\codeblocks\mingw\include\txlib.h:12789:
+
+  12787: 
+  12788: $   HWND wnd = _txCanvas_Window;
+=>12789: $   int  ret = MessageBoxW ((wnd && IsWindowVisible (wnd))? wnd : _TX_CALL (Win32::GetConsoleWindow,()),
+  12790:                             textW, headerW, flags | MB_SETFOREGROUND | MB_TOPMOST);
+  12791: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\danii\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Aug 21 2024 16:45:43, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Aug 21 2024 16:46:22
+
+Run file:	C:\Users\danii\OneDrive\Рабочий стол\SquareSolver\SquareSolver.exe
+Directory:	C:\Users\danii\OneDrive\Рабочий стол\SquareSolver
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\danii\OneDrive\Рабочий стол\SquareSolver\SquareSolver.exe, файл: C:\Users\danii\OneDrive\Рабочий стол\SquareSolver\SquareSolver.cpp, строка: 195, функция: int RunTester(int, double, double, double, double, double, int),
+
+Сообщение: ВНЕЗАПНО: Логическая ошибка: Неверно, что "0 && "Error"".
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x005072FC (32-bit), Flags: Cmdre0, Thread: 0x1C80 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\danii\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Aug 21 2024 16:49:02, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Aug 21 2024 16:49:07
+
+Run file:	C:\Users\danii\OneDrive\Рабочий стол\SquareSolver\SquareSolver.exe
+Directory:	C:\Users\danii\OneDrive\Рабочий стол\SquareSolver
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\danii\OneDrive\Рабочий стол\SquareSolver\SquareSolver.exe,
+
+ВНЕЗАПНО: Исключение С++, вызванное оператором throw.
+
+#1: Исключение EXCEPTION_CPP_MSC (0xE06D7363) при выполнении кода по адресу 0x76D6A942 в модуле C:\WINDOWS\System32\KERNELBASE.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+Ой, всё (EXCEPTION_NONCONTINUABLE).
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x005072FC (32-bit), Flags: Cmdre0, Thread: 0x1C80 (Main), GetLastError(): 298 (Слишком много попыток занесения события для семафора). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in int {anonymous}::TX::txMessageBox(const char*, const char*, unsigned int) at c:\users\danii\downloads\codeblocks\mingw\include\txlib.h:12789:
+
+  12787: 
+  12788: $   HWND wnd = _txCanvas_Window;
+=>12789: $   int  ret = MessageBoxW ((wnd && IsWindowVisible (wnd))? wnd : _TX_CALL (Win32::GetConsoleWindow,()),
+  12790:                             textW, headerW, flags | MB_SETFOREGROUND | MB_TOPMOST);
+  12791: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\danii\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Aug 21 2024 16:49:02, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Aug 21 2024 16:49:07
+
+Run file:	C:\Users\danii\OneDrive\Рабочий стол\SquareSolver\SquareSolver.exe
+Directory:	C:\Users\danii\OneDrive\Рабочий стол\SquareSolver
+
+--------------------------------------------------
