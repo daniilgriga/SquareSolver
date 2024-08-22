@@ -22,23 +22,42 @@ struct quadratic
     int nRoots;
 };
 
-void input (equation* coeffs);
+struct testdata
+{
+    equation coeffs;
+    quadratic wanted_roots;
+};
+
+
+
 
 void output (quadratic roots);
 
 void RunTests (void);
 
+void PrintTestError(int nTests, testdata data, quadratic roots);
+
+void Clean_Buffer(void);
+
+
+int input_update(double* a, const char* str);
+
+int input (equation* coeffs);
+
 int Its_Double_Equal (const double p, const double q);
 
-int RunTester (int nTests, const equation coeffs, double x1wanted, double x2wanted, int nRootsWanted);
+int RunTester (int nTests, testdata data);
 
 int SquareSolver (equation coeffs, quadratic* roots);
 
 int lin_equation (const equation coeffs, quadratic* roots);
 
-double fix_zero_sign (const double k);
-
 int Its_Zero (const double n);
+
+int Enter_Coeffs(double* a, const char* str);
+
+
+double fix_zero_sign (const double k);
 
 
 
@@ -50,42 +69,60 @@ int main (void)
                               .b = NAN,
                               .c = NAN};
 
-    struct quadratic roots = {.x1 = 0,
-                              .x2 = 0,
+    struct quadratic roots = {.x1 = NAN,
+                              .x2 = NAN,
                               .nRoots = 0};
-
 
     printf ("# Solver of quadratic equations!\n");
     printf ("# Author: Daniil\n\n");
-
-    //double a = NAN;
-    //double b = NAN;
-    //double c = NAN;
 
 #ifdef TEST
     RunTests ();
 #endif
 
+    /*if(input_update(&coeffs.a, "a") == 1)
 
-    input (&coeffs);
+        return 0;
+    if(input_update(&coeffs.b, "b") == 1)
+        return 0;
 
-    //double x1 = 0;
-    //double x2 = 0;
-    //int nRoots = SquareSolver (coeffs, &x1, &x2);
+    if(input_update(&coeffs.c, "c") == 1)
+        return 0;*/
+
+    if(Enter_Coeffs(&coeffs.a, "a") == 1)
+        return 1;
+
+    if(Enter_Coeffs(&coeffs.b, "b") == 1)
+        return 1;
+
+    if(Enter_Coeffs(&coeffs.c, "c") == 1)
+        return 1;
+
+    roots.nRoots = SquareSolver (coeffs, &roots);
 
     output (roots);
 
     return 0;
 }
 
+
+
+
+int input (equation* coeffs)
+{
+    printf ("# Enter a, b, c: ");
+    return (scanf ("%lf %lf %lf", &(*coeffs).a, &coeffs->b, &coeffs->c));
+}
+
+
 int SquareSolver (equation coeffs, quadratic* roots)
 {
-    assert (roots != NULL); assert (( Its_Zero ((*roots).x1)) && "x1 is null");
-                            assert (( Its_Zero (roots->x2))&& "x2 is null");
+    assert (roots != NULL);
+//  assert(( Its_Zero ((*roots).x1)) && "x1 is null");       assert (( Its_Zero (roots->x2)) && "x2 is null");
 
-    assert (!isnan (coeffs.a));
-    assert (!isnan (coeffs.b));
-    assert (!isnan (coeffs.c));
+    assert ((!isnan (coeffs.a)) && "a is NAN");  // __LINE__            !!!
+    assert ((!isnan (coeffs.b)) && "b is NAN");
+    assert ((!isnan (coeffs.c)) && "c is NAN");
 
     if (Its_Zero (coeffs.a))
     {
@@ -97,14 +134,14 @@ int SquareSolver (equation coeffs, quadratic* roots)
 
         if (Its_Zero (d))
         {
-            roots->x1 = -coeffs.b / (2 * coeffs.a);
+            roots->x1 = -(coeffs.b) / (2 * (coeffs.a));
             return 1;
         }
 
         else if (d > 0)
         {
-            roots->x1 = (-coeffs.b - sqrt (d)) / (2 * coeffs.a);
-            roots->x2 = (-coeffs.b + sqrt (d)) / (2 * coeffs.a);
+            roots->x1 = ((-coeffs.b) - sqrt (d)) / (2 * (coeffs.a));
+            roots->x2 = ((-coeffs.b) + sqrt (d)) / (2 * (coeffs.a));
             return 2;
         }
         else
@@ -112,42 +149,12 @@ int SquareSolver (equation coeffs, quadratic* roots)
     }
 }
 
-int Its_Zero (const double n)
-{
-    return (fabs (n) < EPS);
-}
-
-int lin_equation (equation coeffs, quadratic* roots)
-{
-    assert (( Its_Zero ((*roots).x1)) && "x is null");
-
-    assert (!isnan (coeffs.b));
-    assert (!isnan (coeffs.c));
-
-    if (Its_Zero (coeffs.b))
-    {
-        return ((Its_Zero (coeffs.c)) ? SS_INF_ROOTS : 0);
-    }
-    else
-    {
-        roots->x1 = -coeffs.c / coeffs.b;
-        return 1;
-    }
-}
-
-double fix_zero_sign (const double k)
-{
-    return Its_Zero (k) ? 0 : k;
-}
-
-void input (equation* coeffs)
-{
-    printf ("# Enter a, b, c: ");
-    scanf ("%lf %lf %lf", & (*coeffs).a, &coeffs->b, &coeffs->c);
-}
 
 void output (quadratic roots)
 {
+
+    // assert(!isnan(roots.x1));
+
     switch (roots.nRoots)
     {
         case 0:
@@ -170,15 +177,48 @@ void output (quadratic roots)
     }
 }
 
-int RunTester (int nTests, equation coeffs, double x1wanted, double x2wanted, int nRootsWanted)
+
+int Its_Zero (const double n)
+{
+    return (fabs (n) < EPS);
+}
+
+
+int lin_equation (equation coeffs, quadratic* roots)
+{
+    assert (( Its_Zero (roots->x1)) && "x is null");
+
+    assert (!isnan (coeffs.b));
+    assert (!isnan (coeffs.c));
+
+    if (Its_Zero (coeffs.b))
+    {
+        return ((Its_Zero (coeffs.c)) ? SS_INF_ROOTS : 0);
+    }
+    else
+    {
+        roots->x1 = -coeffs.c / coeffs.b;
+        return 1;
+    }
+}
+
+
+double fix_zero_sign (const double k)
+{
+    return Its_Zero (k) ? 0 : k;
+}
+
+
+int RunTester (int nTests, testdata data)
 {
     quadratic roots = {.x1 = 0,
                        .x2 = 0,
                        .nRoots = 0};
 
-    roots.nRoots = SquareSolver (coeffs, &roots);
 
-    if ((roots.nRoots) != nRootsWanted)
+    roots.nRoots = SquareSolver (data.coeffs, &roots);
+
+    if ((roots.nRoots) != data.wanted_roots.nRoots)
     {
         printf ("ERROR in %d Test\n", nTests);
         return 1;
@@ -190,24 +230,18 @@ int RunTester (int nTests, equation coeffs, double x1wanted, double x2wanted, in
             return 1;
 
         case 1:
-            if (!Its_Double_Equal (roots.x1, x1wanted))
+            if (!Its_Double_Equal (roots.x1, data.wanted_roots.x1))
             {
-                printf ("ERROR Test %d: a = %lg, b = %lg, c = %lg, x1 = x2 = %lg, nRoots = %d\n"
-                        "Expected: x1 = x2 = %lg, nRoots = %d\n",
-                        nTests, coeffs.a, coeffs.b, coeffs.c, fix_zero_sign (roots.x1), roots.nRoots,
-                        x1wanted, nRootsWanted);
+                PrintTestError(nTests, data, roots);
                 return 1;
             }
 
             break;
 
         case 2:
-            if (!Its_Double_Equal (roots.x1, x1wanted) || !Its_Double_Equal (roots.x2, x2wanted))
+            if (!Its_Double_Equal (roots.x1, data.wanted_roots.x1) || !Its_Double_Equal (roots.x2, data.wanted_roots.x2))
             {
-                printf ("ERROR Test %d: a = %lg, b = %lg, c = %lg, x1 = %lg, x2 = %lg, nRoots = %d\n"
-                       "Expected: x1 = %lg, x2 = %lg, nRoots = %d\n",
-                       nTests, coeffs.a, coeffs.b, coeffs.c, fix_zero_sign (roots.x1), fix_zero_sign (roots.x2), roots.nRoots,
-                       x1wanted, x2wanted, nRootsWanted);
+                PrintTestError(nTests, data, roots);
                 return 1;
             }
 
@@ -225,21 +259,76 @@ int RunTester (int nTests, equation coeffs, double x1wanted, double x2wanted, in
 
 void RunTests (void)
 {
-    RunTester (1, {.a = 1, .b = 0, .c = -4}, -2, +2, 2);
+    RunTester (1,  {.coeffs = {.a = 1, .b = 0, .c = -4}, .wanted_roots = { .x1 = -2, .x2 = +2, .nRoots = 2}});
 
-//                   a   b    c
-    RunTester ( 2, { 1, -2,   1},  1 ,      0, 1);
-    RunTester ( 3, { 4,  4,   1}, -0.5,     0, 1);
-    RunTester ( 4, { 1, -3, -10}, -2,       5, 2);
-    RunTester ( 5, { 0,  0,   0},  0,       0, SS_INF_ROOTS);
-    RunTester ( 6, {-1,  0,   0},  0,       0, 1);
-    RunTester ( 7, { 4,  8,   4}, -1,       0, 1);
-    RunTester ( 8, { 2,  4,   6},  0,       0, 0);
-    RunTester ( 9, { 1,  2,  -3}, -3,       1, 2);
-    RunTester (10, { 9, -6,   1},  1.0/3.0, 0, 1);
+//                      a      b      c        x1   x2    nRoots
+    RunTester (  2, {   1,    -2,     1,        1,   0,      1       });
+    RunTester (  3, {   4,     4,     1,     -0.5,   0,      1       });
+    RunTester (  4, {   1,    -3,   -10,       -2,   5,      2       });
+    RunTester (  5, {   0,     0,     0,        0,   0, SS_INF_ROOTS });
+    RunTester (  6, {  -1,     0,     0,        0,   0,      1       });
+    RunTester (  7, {   4,     8,     4,       -1,   0,      1       });
+    RunTester (  8, {   2,     4,     6,        0,   0,      0       });
+    RunTester (  9, {   1,     2,    -3,       -3,   1,      2       });
+    RunTester ( 10, {   9,    -6,     1,  1.0/3.0,   0,      1       });
+    RunTester ( 11, {   1,     5,   -85,        0,   0,      2       });
 }
+
 
 int Its_Double_Equal (const double p, const double q)
 {
     return (fabs (p - q) < EPS);
+}
+
+
+
+void PrintTestError (int nTests, testdata data, quadratic roots)
+{
+    printf ("ERROR Test %d: a = %lg, b = %lg, c = %lg, x1 = %lg, x2 = %lg, nRoots = %d\n"
+            "Expected: x1 = %lg, x2 = %lg, nRoots = %d\n",
+            nTests, data.coeffs.a, data.coeffs.b, data.coeffs.c, fix_zero_sign (roots.x1), fix_zero_sign (roots.x2), roots.nRoots,
+            data.wanted_roots.x1, data.wanted_roots.x2, data.wanted_roots.nRoots);
+}
+
+
+
+void Clean_Buffer(void)
+{
+    while((getchar()) != '\n')
+        ;
+}
+
+
+
+int input_update(double* a, const char* str)
+{
+    printf("# Enter %s: ", str);
+
+    if(scanf("%lf", a) == 1)
+    {
+        if(getchar() == '\n')
+            return 0;
+        Clean_Buffer();
+        return 1;
+    }
+    else
+    {
+        Clean_Buffer();
+        return 1;
+    }
+}
+
+
+int Enter_Coeffs(double* a, const char* str)
+{
+
+    for(int i = 0; i < 5; i++)
+    {
+        if(input_update(a, str) == 0)
+            return 0;
+        printf("You didn't enter a number, try again.\n");
+    }
+
+    printf("Goodbye!");
+    return 1;
 }
