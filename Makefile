@@ -17,11 +17,11 @@ FLAGS = -D _DEBUG -ggdb3 -std=c++17 -O0 -Wall -Wextra -Weffc++ -Waggressive-loop
 		integer-divide-by-zero,leak,nonnull-attribute,null,object-size,return,$\
 		returns-nonnull-attribute,shift,signed-integer-overflow,undefined,unreachable,vla-bound,vptr
 
-CFLAGS=-c $(FLAGS)
-LDFLAGS=$(FLAGS)
-SOURCES=SquareSolver.cpp tests.cpp inout.cpp mathtricks.cpp
-OBJECTS=$(SOURCES:.cpp=.o)
-EXECUTABLE=solver
+CFLAGS = -c $(FLAGS)
+LDFLAGS = $(FLAGS)
+SOURCES = main.cpp equations.cpp tests.cpp inout.cpp mathtricks.cpp
+OBJECTS = $(SOURCES:.cpp=.o)
+EXECUTABLE = solver
 
 .PHONY: all clean
 

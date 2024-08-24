@@ -2,24 +2,19 @@
 #include <assert.h>
 #include "mathtricks.h"
 
-const double EPS = 1e-9;
-
-int Its_Zero (const double n)
+int Is_Zero(const double n)
 {
     return (fabs (n) < EPS);
 }
 
 
-double fix_zero_sign (const double k)
+double fix_zero_sign(const double k)
 {
-    return Its_Zero (k) ? 0 : k;
+    return Is_Zero (k) ? 0 : k;
 }
 
 
-
-
-
-int Its_Double_Equal (const double p, const double q)
+int Is_Double_Equal(const double p, const double q)
 {
     assert(isfinite(q));
     assert(isfinite(p));

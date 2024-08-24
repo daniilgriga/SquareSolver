@@ -6,27 +6,24 @@
 
 
 
-void output (quadratic roots)
+void output (target roots)
 {
-
-    // assert(!isnan(roots.x1));
-
     switch (roots.nRoots)
     {
         case 0:
-            printf ("No Roots!\n");
+            printf("No Roots!\n");
             break;
 
         case 1:
-            printf ("Single root: x = %lg\n", fix_zero_sign (roots.x1));
+            printf("Single root: x = %lg\n", fix_zero_sign(roots.x1));
             break;
 
         case 2:
-            printf ("Two roots: x1 = %lg and x2 = %lg\n", fix_zero_sign (roots.x1), fix_zero_sign (roots.x2));
+            printf("Two roots: x1 = %lg and x2 = %lg\n", fix_zero_sign(roots.x1), fix_zero_sign(roots.x2));
             break;
 
         case SS_INF_ROOTS:
-            printf ("Infinite roots :)\n");
+            printf("Infinite roots :)\n");
             break;
 
         default: assert (0 && "Error1");
@@ -65,7 +62,7 @@ int Enter_Coeffs(double* a, const char* str)
         printf("You didn't enter a number!\n");
     }
 
-    printf("Goodbye!");
+    printf("Goodbye!\n");
     return 1;
 }
 
