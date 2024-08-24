@@ -2,6 +2,8 @@
 #include <assert.h>
 #include "mathtricks.h"
 
+const double EPS = 1e-9;
+
 int Is_Zero(const double n)
 {
     return (fabs (n) < EPS);

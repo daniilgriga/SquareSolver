@@ -1,10 +1,13 @@
 #include <stdio.h>
 #include <math.h>
 #include <assert.h>
+#include <stdlib.h>
+
 #include "tests.h"
 #include "mathtricks.h"
 #include "equations.h"
 
+#define NTESTS 11
 
 int RunTester(int nTests, testdata data)
 {
@@ -18,7 +21,7 @@ int RunTester(int nTests, testdata data)
     if ((roots.nRoots) != data.wanted_roots.nRoots)
     {
         printf("ERROR in %d Test\n", nTests);
-        return 1;
+        return EXIT_FAILURE;
     }
 
     switch (roots.nRoots)
@@ -50,7 +53,7 @@ int RunTester(int nTests, testdata data)
         default: assert (0 && "Error");
     }
 
-    return 0;
+    return EXIT_SUCCESS;
 }
 
 
@@ -65,21 +68,20 @@ void PrintTestError(int nTests, testdata data, target roots)
 
 void AllTests(void)
 {
-    const int nTests = 11;
 
 //                               a      b      c        x1   x2     nRoots
-    testdata data[nTests] = {{   1,     0,    -4,       -2,  +2,      2       },
-                             {   1,    -2,     1,        1,   0,      1       },
-                             {   4,     4,     1,     -0.5,   0,      1       },
-                             {   1,    -3,   -10,       -2,   5,      2       },
-                             {   0,     0,     0,        0,   0, SS_INF_ROOTS },
-                             {  -1,     0,     0,        0,   0,      1       },
-                             {   4,     8,     4,       -1,   0,      1       },
-                             {   2,     4,     6,        0,   0,      0       },
-                             {   1,     2,    -3,       -3,   1,      2       },
-                             {   9,    -6,     1,  1.0/3.0,   0,      1       },
-                             {   1,     5,   -85,        0,   0,      2       }};
+    testdata data[NTESTS] = {{ {   1,     0,    -4},  {     -2,  +2,      2     }  },
+                             { {  1,    -2,     1},   {     1,   0,      1      } },
+                             { {  4,     4,     1},   {  -0.5,   0,      1      } },
+                             { {  1,    -3,   -10},   {    -2,   5,      2      } },
+                             { {  0,     0,     0},   {     0,   0, SS_INF_ROOTS} },
+                             { { -1,     0,     0},   {     0,   0,      1      } },
+                             { {  4,     8,     4},   {    -1,   0,      1      } },
+                             { {  2,     4,     6},   {     0,   0,      0      } },
+                             { {  1,     2,    -3},   {    -3,   1,      2      } },
+                             { {  9,    -6,     1},   {  1.0/3.0,   0,      1   }    },
+                             { {  1,     5,   -85},   {     0,   0,      2      } }};
 
-    for(int i = 0; i < nTests; i++)
+    for(int i = 0; i < NTESTS; i++)
         RunTester(i, data[i]);
 }

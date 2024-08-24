@@ -11,11 +11,11 @@
 
 int main (void)
 {                                                                                                                                                                                                                                                   printf ("MEOW\n\n"); // Ded, ya zametil
-    struct coefficents coeffs = {.a = NAN,
+    coefficients coeffs = {.a = NAN,
                                  .b = NAN,
                                  .c = NAN};
 
-    struct target roots = {.x1 = NAN,
+    target roots = {.x1 = NAN,
                            .x2 = NAN,
                            .nRoots = 0};
 

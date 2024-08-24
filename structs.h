@@ -10,25 +10,27 @@
  *
  * @brief const:)
  */
-const int SS_INF_ROOTS = -1;
+ #define SS_INF_ROOTS -1
 
 /**
- * @struct coefficents
+ * @struct coefficients
  *
- * @brief This structure contains three coefficents of quadratic equation
- * @var coefficents::a
- * Member 'a' contains first coefficents in quadratic equation
- * @var coefficents::b
- * Member 'b' contains second coefficents in quadratic equation
- * @var coefficents::c
- * Member 'c' contains third coefficents in quadratic equation
+ * @brief This structure contains three coefficients of quadratic equation
+ * @var coefficients::a
+ * Member 'a' contains first coefficients in quadratic equation
+ * @var coefficients::b
+ * Member 'b' contains second coefficients in quadratic equation
+ * @var coefficients::c
+ * Member 'c' contains third coefficients in quadratic equation
  */
-struct coefficents
+struct coefficients_s
 {
     double a;
     double b;
     double c;
 };
+
+typedef struct coefficients_s coefficients;
 
 /**
  * @struct target
@@ -41,26 +43,28 @@ struct coefficents
  * @var target::nRoots
  * Member 'nRoots' contains number of roots
  */
-struct target
+struct target_s
 {
     double x1;
     double x2;
     int nRoots;
 };
 
+typedef struct target_s target;
 /**
  * @struct testdata
  *
  * @brief This structure contains two structers
  * @var testdata::coeffs
- * Member 'coeffs' contains three coefficents of quadratic equation
+ * Member 'coeffs' contains three coefficients of quadratic equation
  * @var testdata::wanted_roots
  * Member 'wanted_roots' contains two wanted roots and wanted number of roots
  */
-struct testdata
+struct testdata_s
 {
-    coefficents coeffs;
+    coefficients coeffs;
     target wanted_roots;
 };
 
+typedef struct testdata_s testdata;
 #endif // STRUCTS_H_

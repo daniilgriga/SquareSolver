@@ -6,7 +6,9 @@
 #include "mathtricks.h"
 #include "equations.h"
 
-int SquareSolver(coefficents coeffs, target* roots)
+
+
+int SquareSolver(coefficients coeffs, target* roots)
 {
     assert (roots != NULL);
 //  assert(( Is_Zero ((*roots).x1)) && "x1 is null");       assert (( Is_Zero (roots->x2)) && "x2 is null");
@@ -41,7 +43,7 @@ int SquareSolver(coefficents coeffs, target* roots)
 }
 
 
-int lin_equation(coefficents coeffs, target* roots)
+int lin_equation(coefficients coeffs, target* roots)
 {
     assert (roots != NULL);
 //  assert (( Is_Zero (roots->x1)) && "x is null");

@@ -6,7 +6,7 @@
 #ifndef MATHTRICKS_H_
 #define MATHTRICKS_H_
 
-const double EPS = 1e-9;
+extern const double EPS;
 /**
  * @brief It contains mathematical operations of comparing them with EPSILON
  *
