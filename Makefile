@@ -21,22 +21,22 @@ CFLAGS=-c $(FLAGS)
 LDFLAGS=$(FLAGS)
 SOURCES=SquareSolver.cpp tests.cpp inout.cpp mathtricks.cpp
 OBJECTS=$(SOURCES:.cpp=.o)
-EXECUTABLE=solver2.exe
+EXECUTABLE=solver
 
 .PHONY: all clean
 
 all: $(SOURCES) $(EXECUTABLE)
 
 $(EXECUTABLE): $(OBJECTS)
-	$(CC) $(LDFLAGS) $(OBJECTS) -o $@
+	@$(CC) $(LDFLAGS) $(OBJECTS) -o $@
 
 %.o: %.cpp
-	$(CC) $(CFLAGS) $< -o $@
+	@$(CC) $(CFLAGS) $< -o $@
 
-clean: 
+clean:
 	rm -f *.o $(EXECUTABLE)
 
 
 
-	
+
 
