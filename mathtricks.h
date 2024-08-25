@@ -3,6 +3,7 @@
  * @brief mathtricks.h contains mathematical operations that use EPS(epsilon) to compare floating-point numbers,
  *        which helps to get rid of the error
  */
+
 #ifndef MATHTRICKS_H_
 #define MATHTRICKS_H_
 

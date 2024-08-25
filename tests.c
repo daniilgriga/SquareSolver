@@ -26,10 +26,10 @@ int RunTester(int nTests, testdata data)
 
     switch (roots.nRoots)
     {
-        case 0:
+        case NO_ROOTS:
             return 1;
 
-        case 1:
+        case ONE_ROOT:
             if (!Is_Double_Equal(roots.x1, data.wanted_roots.x1))
             {
                 PrintTestError(nTests, data, roots);
@@ -38,7 +38,7 @@ int RunTester(int nTests, testdata data)
 
             break;
 
-        case 2:
+        case TWO_ROOTS:
             if (!Is_Double_Equal(roots.x1, data.wanted_roots.x1) || !Is_Double_Equal(roots.x2, data.wanted_roots.x2))
             {
                 PrintTestError(nTests, data, roots);
@@ -47,7 +47,7 @@ int RunTester(int nTests, testdata data)
 
             break;
 
-        case SS_INF_ROOTS:
+        case INF_ROOTS:
             return 1;
 
         default: assert (0 && "Error");
@@ -74,7 +74,7 @@ void AllTests(void)
                              { {  1,    -2,     1},   {     1,   0,      1      } },
                              { {  4,     4,     1},   {  -0.5,   0,      1      } },
                              { {  1,    -3,   -10},   {    -2,   5,      2      } },
-                             { {  0,     0,     0},   {     0,   0, SS_INF_ROOTS} },
+                             { {  0,     0,     0},   {     0,   0, INF_ROOTS} },
                              { { -1,     0,     0},   {     0,   0,      1      } },
                              { {  4,     8,     4},   {    -1,   0,      1      } },
                              { {  2,     4,     6},   {     0,   0,      0      } },

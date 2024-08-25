@@ -5,6 +5,8 @@
 #ifndef SQUARESOLVER_H_
 #define SQUARESOLVER_H_
 
+enum Numb_Roots {INF_ROOTS = -1, NO_ROOTS, ONE_ROOT, TWO_ROOTS};
+
 /**
  * @brief this function solves the quadratic equation
  *
@@ -28,4 +30,5 @@ int SquareSolver (coefficients coeffs, target* roots);
  *         SS_INF_ROOTS = -1 - if b == 0 b c == 0
  */
 int lin_equation(coefficients coeffs, target* roots);
+
 #endif //SQUARESOLVER_H_

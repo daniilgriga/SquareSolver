@@ -6,11 +6,6 @@
 #ifndef STRUCTS_H_
 #define STRUCTS_H_
 
-/**
- *
- * @brief const:)
- */
- #define SS_INF_ROOTS -1
 
 /**
  * @struct coefficients

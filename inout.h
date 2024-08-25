@@ -7,7 +7,6 @@
 
 #include "structs.h"
 
-
 /**
  * @brief It prints roots
  *
@@ -19,7 +18,6 @@ void output(target roots);
  * @brief Cleans the buffer
  */
 void Clean_Buffer(void);
-
 
 /**
  * @brief Accepts only double numbers. when you enter a number with letters, a letter, or a special character, the buffer is cleared

@@ -1,4 +1,4 @@
-CC=gcc
+CC = gcc
 
 FLAGS = -D _DEBUG -ggdb3  -O0 -Wall -Wextra  -Waggressive-loop-optimizations \
 	   	-Wmissing-declarations -Wcast-align -Wcast-qual -Wchar-subscripts \

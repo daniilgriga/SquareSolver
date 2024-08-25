@@ -7,7 +7,6 @@
 #include "equations.h"
 
 
-
 int SquareSolver(coefficients coeffs, target* roots)
 {
     assert (roots != NULL);
@@ -28,17 +27,17 @@ int SquareSolver(coefficients coeffs, target* roots)
         if (Is_Zero(d))
         {
             roots->x1 = -(coeffs.b) / (2 * (coeffs.a));
-            return 1;
+            return ONE_ROOT;
         }
 
         else if (d >= EPS)
         {
             roots->x1 = ((-coeffs.b) - sqrt (d)) / (2 * (coeffs.a));
             roots->x2 = ((-coeffs.b) + sqrt (d)) / (2 * (coeffs.a));
-            return 2;
+            return TWO_ROOTS;
         }
         else // d <= EPS
-            return 0;
+            return NO_ROOTS;
     }
 }
 
@@ -53,11 +52,11 @@ int lin_equation(coefficients coeffs, target* roots)
 
     if (Is_Zero(coeffs.b))
     {
-        return ((Is_Zero(coeffs.c)) ? SS_INF_ROOTS : 0);
+        return ((Is_Zero(coeffs.c)) ? INF_ROOTS : NO_ROOTS);
     }
     else
     {
         roots->x1 = -coeffs.c / coeffs.b;
-        return 1;
+        return ONE_ROOT;
     }
 }

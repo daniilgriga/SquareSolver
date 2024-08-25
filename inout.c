@@ -3,33 +3,32 @@
 
 #include "mathtricks.h"
 #include "inout.h"
-
+#include "equations.h"
 
 
 void output (target roots)
 {
     switch (roots.nRoots)
     {
-        case 0:
+        case NO_ROOTS:
             printf("No Roots!\n");
             break;
 
-        case 1:
+        case ONE_ROOT:
             printf("Single root: x = %lg\n", fix_zero_sign(roots.x1));
             break;
 
-        case 2:
+        case TWO_ROOTS:
             printf("Two roots: x1 = %lg and x2 = %lg\n", fix_zero_sign(roots.x1), fix_zero_sign(roots.x2));
             break;
 
-        case SS_INF_ROOTS:
+        case INF_ROOTS:
             printf("Infinite roots :)\n");
             break;
 
         default: assert (0 && "Error1");
     }
 }
-
 
 
 int input_update(double* a, const char* str)
