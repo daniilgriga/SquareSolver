@@ -19,24 +19,25 @@ FLAGS = -D _DEBUG -ggdb3  -O0 -Wall -Wextra  -Waggressive-loop-optimizations \
 
 CFLAGS = -c $(FLAGS)
 LDFLAGS = $(FLAGS) -lm
-SOURCES = main.c equations.c tests.c inout.c mathtricks.c
-OBJECTS = $(SOURCES:.cpp=.o)
+
+SOURCES_LIST = main.c equations.c tests.c inout.c mathtricks.c
+
+SOURCES = $(SOURCES_LIST:%=src/%)
+OBJECTS = $(SOURCES_LIST:%.c=build/%.o)
+DEPS = $(OBJECTS:%.o=%.d)
 EXECUTABLE = solver
 
 .PHONY: all clean
 
-all: $(SOURCES) $(EXECUTABLE)
+all: $(EXECUTABLE)
 
 $(EXECUTABLE): $(OBJECTS)
-	@$(CC) $(LDFLAGS) $(OBJECTS) -o $@
+	@$(CC) $(LDFLAGS) $^ -o $@
 
-%.o: %.cpp
-	@$(CC) $(CFLAGS) $< -o $@
+-include $(DEPS)
+
+build/%.o: src/%.c
+	@$(CC) -I./include $(CFLAGS) -MMD -MP $< -o $@
 
 clean:
-	rm -f *.o $(EXECUTABLE)
-
-
-
-
-
+	rm -f build/*.o $(EXECUTABLE)

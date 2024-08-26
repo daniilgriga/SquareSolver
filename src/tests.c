@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 #include <assert.h>
-#include <stdlib.h>
+// #include <stdlib.h>
 
 #include "tests.h"
 #include "mathtricks.h"
@@ -21,7 +21,7 @@ int RunTester(int nTests, testdata data)
     if ((roots.nRoots) != data.wanted_roots.nRoots)
     {
         printf("ERROR in %d Test\n", nTests);
-        return EXIT_FAILURE;
+        return 1; // EXIT_FAILURE
     }
 
     switch (roots.nRoots)
@@ -50,17 +50,17 @@ int RunTester(int nTests, testdata data)
         case INF_ROOTS:
             return 1;
 
-        default: assert (0 && "Error");
+        default: assert (0 && "unexpected number of roots");
     }
 
-    return EXIT_SUCCESS;
+    return 0; // EXIT_SUCCESS
 }
 
 
 void PrintTestError(int nTests, testdata data, target roots)
 {
-    printf("ERROR Test %d: a = %lg, b = %lg, c = %lg, x1 = %lg, x2 = %lg, nRoots = %d\n"
-           "Expected: x1 = %lg, x2 = %lg, nRoots = %d\n",
+    printf("ERROR Test %d: a = %g, b = %g, c = %g, x1 = %g, x2 = %g, nRoots = %d\n"
+           "Expected: x1 = %g, x2 = %g, nRoots = %d\n",
            nTests, data.coeffs.a, data.coeffs.b, data.coeffs.c, fix_zero_sign (roots.x1), fix_zero_sign (roots.x2), roots.nRoots,
            data.wanted_roots.x1, data.wanted_roots.x2, data.wanted_roots.nRoots);
 }
@@ -69,17 +69,17 @@ void PrintTestError(int nTests, testdata data, target roots)
 void AllTests(void)
 {
 
-//                               a      b      c        x1   x2     nRoots
-    testdata data[NTESTS] = {{ {   1,     0,    -4},  {     -2,  +2,      2     }  },
+//                                a      b      c          x1   x2     nRoots
+    testdata data[NTESTS] = {{ {  1,     0,    -4},   {    -2,  +2,      2      } },
                              { {  1,    -2,     1},   {     1,   0,      1      } },
                              { {  4,     4,     1},   {  -0.5,   0,      1      } },
                              { {  1,    -3,   -10},   {    -2,   5,      2      } },
-                             { {  0,     0,     0},   {     0,   0, INF_ROOTS} },
+                             { {  0,     0,     0},   {     0,   0,  INF_ROOTS  } },
                              { { -1,     0,     0},   {     0,   0,      1      } },
                              { {  4,     8,     4},   {    -1,   0,      1      } },
                              { {  2,     4,     6},   {     0,   0,      0      } },
                              { {  1,     2,    -3},   {    -3,   1,      2      } },
-                             { {  9,    -6,     1},   {  1.0/3.0,   0,      1   }    },
+                             { {  9,    -6,     1},   {  1.0/3.0,   0,      1   } },
                              { {  1,     5,   -85},   {     0,   0,      2      } }};
 
     for(int i = 0; i < NTESTS; i++)

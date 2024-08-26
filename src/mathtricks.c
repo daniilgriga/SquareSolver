@@ -1,5 +1,6 @@
 #include <math.h>
 #include <assert.h>
+
 #include "mathtricks.h"
 
 const double EPS = 1e-9;
