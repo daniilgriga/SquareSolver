@@ -1,5 +1,3 @@
-*.o
-solver
 .vscode
 doxygen/
 build

@@ -25,7 +25,7 @@ SOURCES_LIST = main.c equations.c tests.c inout.c mathtricks.c
 SOURCES = $(SOURCES_LIST:%=src/%)
 OBJECTS = $(SOURCES_LIST:%.c=build/%.o)
 DEPS = $(OBJECTS:%.o=%.d)
-EXECUTABLE = solver
+EXECUTABLE = build/solver
 
 .PHONY: all clean
 
