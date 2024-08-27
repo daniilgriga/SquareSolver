@@ -26,7 +26,7 @@ void output (target roots)
             printf("Infinite roots :)\n");
             break;
 
-        default: assert (0 && "Error1");
+        default: assert (0 && "Error in output()");
     }
 }
 
@@ -53,7 +53,6 @@ int input_update(double* a, const char* str)
 
 int Enter_Coeffs(double* a, const char* str)
 {
-
     for(int i = 0; i < 5; i++)
     {
         if(input_update(a, str) == 0)

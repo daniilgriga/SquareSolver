@@ -10,7 +10,7 @@
 #define TEST
 
 int main (void)
-{                                                                                                                                                                                                                                                   printf ("MEOW\n\n"); // Ded, ya zametil
+{                                                                                                                                                                                                                                                   printf ("# MEOW - ded ya vse znayu\n\n");
     coefficients coeffs = {.a = NAN,
                            .b = NAN,
                            .c = NAN};
@@ -22,8 +22,8 @@ int main (void)
     printf ("# Solver of quadratic equations!\n");
     printf ("# Author: Daniil\n\n");
 
-    puts("# Solver of quadratic equations!\n"
-         "# Author: Daniil\n");
+    /*puts("# Solver of quadratic equations!\n"
+           "# Author: Daniil\n");*/
 
 #ifdef TEST
     AllTests();
