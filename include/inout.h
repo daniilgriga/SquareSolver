@@ -37,6 +37,6 @@ int input_update(double* a, const char* str);
  *
  * @return 1 - if input is success; 0 - if input is failed
  */
-int Enter_Coeffs(double* a, const char* str);
+int Enter_Coeff(double* a, const char* str);
 
 #endif // INOUT_H_

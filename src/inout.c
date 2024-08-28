@@ -52,7 +52,7 @@ int input_update(double* a, const char* str)
 }
 
 
-int Enter_Coeffs(double* a, const char* str)
+int Enter_Coeff(double* a, const char* str)
 {
     for(int i = 0; i < 5; i++)
     {

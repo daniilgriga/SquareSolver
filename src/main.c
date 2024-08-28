@@ -26,13 +26,13 @@ int main (void)
     AllTests();
 #endif
 
-    if(Enter_Coeffs(&coeffs.a, "a") == 1)
+    if(Enter_Coeff(&coeffs.a, "a") == 1)
         return 1;
 
-    if(Enter_Coeffs(&coeffs.b, "b") == 1)
+    if(Enter_Coeff(&coeffs.b, "b") == 1)
         return 1;
 
-    if(Enter_Coeffs(&coeffs.c, "c") == 1)
+    if(Enter_Coeff(&coeffs.c, "c") == 1)
         return 1;
 
     roots.nRoots = SquareSolver(coeffs, &roots);
