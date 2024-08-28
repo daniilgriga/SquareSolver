@@ -6,7 +6,7 @@
 #include "equations.h"
 
 
-void output (target roots)
+void output(target roots)
 {
     switch (roots.nRoots)
     {
@@ -38,8 +38,9 @@ int input_update(double* a, const char* str)
     int n = 0;
     if(scanf("%lf", a) == 1)
     {
-        if (((n = getchar()) == '\n') || ((n == EOF)))
+        if(((n = getchar()) == '\n') || ((n == EOF)))
             return 0;
+
         Clean_Buffer();
         return 1;
     }
@@ -57,6 +58,7 @@ int Enter_Coeffs(double* a, const char* str)
     {
         if(input_update(a, str) == 0)
             return 0;
+
         printf("You didn't enter a number!\n");
     }
 
@@ -67,6 +69,5 @@ int Enter_Coeffs(double* a, const char* str)
 
 void Clean_Buffer(void)
 {
-    while((getchar()) != '\n')
-        ;
+    while((getchar()) != '\n') {;}
 }

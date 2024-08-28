@@ -19,16 +19,12 @@ int main (void)
                     .x2 = NAN,
                     .nRoots = 0};
 
-    printf ("# Solver of quadratic equations!\n");
-    printf ("# Author: Daniil\n\n");
-
-    /*puts("# Solver of quadratic equations!\n"
-           "# Author: Daniil\n");*/
+    printf("# Solver of quadratic equations!\n");
+    printf("# Author: Daniil\n\n");
 
 #ifdef TEST
     AllTests();
 #endif
-
 
     if(Enter_Coeffs(&coeffs.a, "a") == 1)
         return 1;

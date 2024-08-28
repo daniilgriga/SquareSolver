@@ -10,7 +10,7 @@
 int SquareSolver(coefficients coeffs, target* roots)
 {
     assert (roots != NULL);
-//  assert(( Is_Zero ((*roots).x1)) && "x1 is null");       assert (( Is_Zero (roots->x2)) && "x2 is null");
+//  assert ((Is_Zero ((*roots).x1)) && "x1 is null");       assert (( Is_Zero (roots->x2)) && "x2 is null");
 
     assert ((!isnan (coeffs.a)) && "a is NAN");  // __LINE__!!!
     assert ((!isnan (coeffs.b)) && "b is NAN");
