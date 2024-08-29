@@ -28,14 +28,14 @@ struct coefficients_s
 typedef struct coefficients_s coefficients;
 
 /**
- * @struct target
+ * @struct roots_data
  *
  * @brief This structure contains two roots and number of roots
- * @var target::x1
+ * @var roots_data::x1
  * Member 'x1' contains first root in quadratic equation
- * @var target::x2
+ * @var roots_data::x2
  * Member 'x2' contains second root in quadratic equation
- * @var target::nRoots
+ * @var roots_data::nRoots
  * Member 'nRoots' contains number of roots
  */
 struct target_s
@@ -45,7 +45,7 @@ struct target_s
     int nRoots;
 };
 
-typedef struct target_s target;
+typedef struct target_s roots_data;
 /**
  * @struct testdata
  *
@@ -58,7 +58,7 @@ typedef struct target_s target;
 struct testdata_s
 {
     coefficients coeffs;
-    target wanted_roots;
+    roots_data wanted_roots;
 };
 
 typedef struct testdata_s testdata;

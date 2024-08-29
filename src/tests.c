@@ -7,6 +7,11 @@
 #include "mathtricks.h"
 #include "equations.h"
 
+#define RED       "\033[1;31m"
+#define CLEAR_COLOR "\033[0m"
+
+#define RED_TEXT(text) RED text CLEAR_COLOR
+
 /**
  * @brief in case of an error in Unit-test, the function displays the test results
  *
@@ -14,23 +19,24 @@
  * @param[in] data contains structure with coefficents
  * @param[in] roots contains structure with roots and number of roots
  */
-static void PrintTestError(size_t nTests, testdata data, target roots)
+static void PrintTestError(size_t nTests, testdata data, roots_data roots)
 {
-    printf("# \033[1;31m" "ERROR " "\033[0m" "Test %zu: a = %g, b = %g, c = %g, x1 = %g, x2 = %g, nRoots = %d\n"
+    printf("# "RED_TEXT("ERROR")" Test %zu: a = %g, b = %g, c = %g, x1 = %g, x2 = %g, nRoots = %d\n"
            "# Expected: x1 = %g, x2 = %g, nRoots = %d\n\n",
            nTests, data.coeffs.a, data.coeffs.b, data.coeffs.c, fix_zero_sign (roots.x1), fix_zero_sign (roots.x2), roots.nRoots,
            data.wanted_roots.x1, data.wanted_roots.x2, data.wanted_roots.nRoots);
 }
 
+
 int RunTester(size_t nTests, testdata data)
 {
-    target roots = {.x1 = 0,
+    roots_data roots = {.x1 = 0,
                     .x2 = 0,
                     .nRoots = 0};
 
-
     roots.nRoots = SquareSolver(data.coeffs, &roots);
 
+    // need for speed: most wanted roots
     if ((roots.nRoots) != data.wanted_roots.nRoots)
     {
         printf("ERROR in %zu Test\n", nTests);
@@ -40,7 +46,7 @@ int RunTester(size_t nTests, testdata data)
     switch (roots.nRoots)
     {
         case NO_ROOTS:
-            return 1;
+            return 1; // FIXME:
 
         case ONE_ROOT:
             if (!Is_Double_Equal(roots.x1, data.wanted_roots.x1))
@@ -68,6 +74,7 @@ int RunTester(size_t nTests, testdata data)
 
     return 0; // EXIT_SUCCESS
 }
+
 
 void AllTests(void)
 {

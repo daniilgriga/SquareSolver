@@ -17,7 +17,7 @@ enum Numb_Roots {INF_ROOTS = -1, NO_ROOTS, ONE_ROOT, TWO_ROOTS};
  *         1 - if equation have one root;
  *         2 - if equation have two roots;
  */
-int SquareSolver (coefficients coeffs, target* roots);
+int SquareSolver (coefficients coeffs, roots_data* roots);
 
 /**
  * @brief this function solves the linear equation
@@ -29,6 +29,6 @@ int SquareSolver (coefficients coeffs, target* roots);
  *         0 - if b == 0
  *         SS_INF_ROOTS = -1 - if b == 0 b c == 0
  */
-int lin_equation(coefficients coeffs, target* roots);
+int lin_equation(coefficients coeffs, roots_data* roots);
 
 #endif //SQUARESOLVER_H_
