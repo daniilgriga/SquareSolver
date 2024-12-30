@@ -36,18 +36,18 @@ int main (const int argc, const char* argv[])
         printf("Error. This unknown flags, you can use only \"--help\" and \"%s\"!!!\n", TEST_FLAG);
 
         return 1;
-    }
-                                                                                                                                                                                                                   printf ("# MEOW - ded ya vse znayu\n\n");
+    }      
+                                                                                                                                                                                                                                                 
     coefficients coeffs = {.a = NAN,
                            .b = NAN,
                            .c = NAN};
 
-    roots_data roots = {.x1 = NAN,
-                    .x2 = NAN,
-                    .nRoots = 0};
+    roots_data roots    = {.x1 = NAN,
+                           .x2 = NAN,
+                           .nRoots = 0};
 
     printf("# Solver of quadratic equations!\n");
-    printf("# Author: Daniil\n\n");
+    printf("# Author: dan\n\n");
 
     if(Enter_Coeff(&coeffs.a, "a") == 1)
         return 1;

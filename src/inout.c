@@ -54,7 +54,7 @@ int Enter_Coeff(double* a, const char* coeff_name)
         if(input_coeff(a, coeff_name) == 0)
             return 0;
 
-        printf("You didn't enter a number!\n");
+        printf("\nYou didn't enter a number!\n");
         printf("You have %d lifes left\n", i - 1);
     }
 
